@@ -228,6 +228,32 @@ export namespace cloudbuild_v1alpha1 {
     createTime?: string | null;
   }
   /**
+   * Response of BatchCreateGitLabConnectedRepositories RPC method.
+   */
+  export interface Schema$BatchCreateGitLabConnectedRepositoriesResponse {
+    /**
+     * The GitLab connected repository requests' responses.
+     */
+    gitlabConnectedRepositories?: Schema$GitLabConnectedRepository[];
+  }
+  /**
+   * Metadata for `BatchCreateGitLabConnectedRepositories` operation.
+   */
+  export interface Schema$BatchCreateGitLabConnectedRepositoriesResponseMetadata {
+    /**
+     * Time the operation was completed.
+     */
+    completeTime?: string | null;
+    /**
+     * The name of the `GitLabConfig` that added connected repositories. Format: `projects/{project\}/locations/{location\}/gitLabConfigs/{config\}`
+     */
+    config?: string | null;
+    /**
+     * Time the operation was created.
+     */
+    createTime?: string | null;
+  }
+  /**
    * / BitbucketServerConnectedRepository represents a connected Bitbucket Server / repository.
    */
   export interface Schema$BitbucketServerConnectedRepository {
@@ -594,6 +620,23 @@ export namespace cloudbuild_v1alpha1 {
     githubEnterpriseConfig?: string | null;
   }
   /**
+   * Metadata for `CreateGitLabConfig` operation.
+   */
+  export interface Schema$CreateGitLabConfigOperationMetadata {
+    /**
+     * Time the operation was completed.
+     */
+    completeTime?: string | null;
+    /**
+     * Time the operation was created.
+     */
+    createTime?: string | null;
+    /**
+     * The resource name of the GitLabConfig to be created. Format: `projects/{project\}/locations/{location\}/gitlabConfigs/{id\}`.
+     */
+    gitlabConfig?: string | null;
+  }
+  /**
    * Metadata for the `CreateWorkerPool` operation.
    */
   export interface Schema$CreateWorkerPoolOperationMetadata {
@@ -645,6 +688,23 @@ export namespace cloudbuild_v1alpha1 {
     githubEnterpriseConfig?: string | null;
   }
   /**
+   * Metadata for `DeleteGitLabConfig` operation.
+   */
+  export interface Schema$DeleteGitLabConfigOperationMetadata {
+    /**
+     * Time the operation was completed.
+     */
+    completeTime?: string | null;
+    /**
+     * Time the operation was created.
+     */
+    createTime?: string | null;
+    /**
+     * The resource name of the GitLabConfig to be created. Format: `projects/{project\}/locations/{location\}/gitlabConfigs/{id\}`.
+     */
+    gitlabConfig?: string | null;
+  }
+  /**
    * Metadata for the `DeleteWorkerPool` operation.
    */
   export interface Schema$DeleteWorkerPoolOperationMetadata {
@@ -686,6 +746,36 @@ export namespace cloudbuild_v1alpha1 {
      * Collection of file hashes.
      */
     fileHash?: Schema$Hash[];
+  }
+  /**
+   * GitLabConnectedRepository represents a GitLab connected repository request response.
+   */
+  export interface Schema$GitLabConnectedRepository {
+    /**
+     * The name of the `GitLabConfig` that added connected repository. Format: `projects/{project\}/locations/{location\}/gitLabConfigs/{config\}`
+     */
+    parent?: string | null;
+    /**
+     * The GitLab repositories to connect.
+     */
+    repo?: Schema$GitLabRepositoryId;
+    /**
+     * Output only. The status of the repo connection request.
+     */
+    status?: Schema$Status;
+  }
+  /**
+   * GitLabRepositoryId identifies a specific repository hosted on GitLab.com or GitLabEnterprise
+   */
+  export interface Schema$GitLabRepositoryId {
+    /**
+     * Required. Identifier for the repository. example: "namespace/project-slug", namespace is usually the username or group ID
+     */
+    id?: string | null;
+    /**
+     * Output only. The ID of the webhook that was created for receiving events from this repo. We only create and manage a single webhook for each repo.
+     */
+    webhookId?: number | null;
   }
   /**
    * Represents the metadata of the long-running operation.
@@ -1270,6 +1360,23 @@ export namespace cloudbuild_v1alpha1 {
      * The resource name of the GitHubEnterprise to be updated. Format: `projects/{project\}/locations/{location\}/githubEnterpriseConfigs/{id\}`.
      */
     githubEnterpriseConfig?: string | null;
+  }
+  /**
+   * Metadata for `UpdateGitLabConfig` operation.
+   */
+  export interface Schema$UpdateGitLabConfigOperationMetadata {
+    /**
+     * Time the operation was completed.
+     */
+    completeTime?: string | null;
+    /**
+     * Time the operation was created.
+     */
+    createTime?: string | null;
+    /**
+     * The resource name of the GitLabConfig to be created. Format: `projects/{project\}/locations/{location\}/gitlabConfigs/{id\}`.
+     */
+    gitlabConfig?: string | null;
   }
   /**
    * Metadata for the `UpdateWorkerPool` operation.
