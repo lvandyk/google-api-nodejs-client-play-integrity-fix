@@ -826,7 +826,7 @@ export namespace documentai_v1beta3 {
      */
     mentionId?: string | null;
     /**
-     * Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the entity is not present in the document, this field will be empty.
+     * Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`.
      */
     mentionText?: string | null;
     /**
@@ -1725,7 +1725,7 @@ export namespace documentai_v1beta3 {
      */
     mentionId?: string | null;
     /**
-     * Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the entity is not present in the document, this field will be empty.
+     * Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`.
      */
     mentionText?: string | null;
     /**
@@ -2823,7 +2823,7 @@ export namespace documentai_v1beta3 {
      */
     mentionId?: string | null;
     /**
-     * Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the entity is not present in the document, this field will be empty.
+     * Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`.
      */
     mentionText?: string | null;
     /**
@@ -2922,6 +2922,10 @@ export namespace documentai_v1beta3 {
    * The configuration used when outputting documents.
    */
   export interface Schema$GoogleCloudDocumentaiV1beta3DocumentOutputConfigGcsOutputConfig {
+    /**
+     * Specifies which fields to include in the output documents.
+     */
+    fieldMask?: string | null;
     /**
      * The Cloud Storage uri (a directory) of the output.
      */
@@ -3663,10 +3667,6 @@ export namespace documentai_v1beta3 {
      * Whether the entity type should be considered as "inactive".
      */
     inactive?: boolean | null;
-    /**
-     * If set, the properties of this entity type must be prefixed with the parents.
-     */
-    prefixedNamingOnProperties?: boolean | null;
   }
   /**
    * Response message for fetch processor types.
