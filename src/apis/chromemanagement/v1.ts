@@ -389,6 +389,10 @@ export namespace chromemanagement_v1 {
      */
     isCwsHosted?: boolean | null;
     /**
+     * Output only. Whether an app supports policy for extensions.
+     */
+    isExtensionPolicySupported?: boolean | null;
+    /**
      * Output only. Whether the app is only for Kiosk mode on ChromeOS devices
      */
     isKioskOnly?: boolean | null;
