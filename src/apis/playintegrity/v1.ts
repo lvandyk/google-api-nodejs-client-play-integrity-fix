@@ -121,7 +121,7 @@ export namespace playintegrity_v1 {
       };
 
       this.v1 = new Resource$V1(this.context);
-      this.decodeIntegrityToken = this.v1.decodeIntegrityToken;
+      this.context.decodeIntegrityToken = this.v1.decodeIntegrityToken;
     }
   }
 
