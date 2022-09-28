@@ -1924,7 +1924,7 @@ export namespace tagmanager_v2 {
      *   const res = await tagmanager.accounts.update({
      *     // When provided, this fingerprint must match the fingerprint of the account in storage.
      *     fingerprint: 'placeholder-value',
-     *     // GTM Accounts's API relative path. Example: accounts/{account_id\}
+     *     // GTM Account's API relative path. Example: accounts/{account_id\}
      *     path: 'accounts/my-account',
      *
      *     // Request body metadata
@@ -2062,7 +2062,7 @@ export namespace tagmanager_v2 {
      */
     fingerprint?: string;
     /**
-     * GTM Accounts's API relative path. Example: accounts/{account_id\}
+     * GTM Account's API relative path. Example: accounts/{account_id\}
      */
     path?: string;
 
@@ -2542,7 +2542,7 @@ export namespace tagmanager_v2 {
      *   const res = await tagmanager.accounts.containers.list({
      *     // Continuation token for fetching the next page of results.
      *     pageToken: 'placeholder-value',
-     *     // GTM Accounts's API relative path. Example: accounts/{account_id\}.
+     *     // GTM Account's API relative path. Example: accounts/{account_id\}.
      *     parent: 'accounts/my-account',
      *   });
      *   console.log(res.data);
@@ -2841,7 +2841,7 @@ export namespace tagmanager_v2 {
      */
     pageToken?: string;
     /**
-     * GTM Accounts's API relative path. Example: accounts/{account_id\}.
+     * GTM Account's API relative path. Example: accounts/{account_id\}.
      */
     parent?: string;
   }
@@ -14942,7 +14942,7 @@ export namespace tagmanager_v2 {
      *   const res = await tagmanager.accounts.user_permissions.list({
      *     // Continuation token for fetching the next page of results.
      *     pageToken: 'placeholder-value',
-     *     // GTM Accounts's API relative path. Example: accounts/{account_id\}
+     *     // GTM Account's API relative path. Example: accounts/{account_id\}
      *     parent: 'accounts/my-account',
      *   });
      *   console.log(res.data);
@@ -15230,7 +15230,7 @@ export namespace tagmanager_v2 {
      */
     pageToken?: string;
     /**
-     * GTM Accounts's API relative path. Example: accounts/{account_id\}
+     * GTM Account's API relative path. Example: accounts/{account_id\}
      */
     parent?: string;
   }
