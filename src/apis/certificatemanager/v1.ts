@@ -211,7 +211,7 @@ export namespace certificatemanager_v1 {
      */
     description?: string | null;
     /**
-     * Output only. A list of GCLB targets which use this Certificate Map.
+     * Output only. A list of GCLB targets which use this Certificate Map. A Target Proxy is only present on this list if it's attached to a Forwarding Rule.
      */
     gclbTargets?: Schema$GclbTarget[];
     /**
