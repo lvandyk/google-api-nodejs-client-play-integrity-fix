@@ -231,7 +231,7 @@ export namespace cloudtasks_v2beta2 {
    */
   export interface Schema$BufferTaskRequest {
     /**
-     * Optional. Body of the HTTP request. The body can take any generic value. The value will be written to the HttpRequest of the [Task].
+     * Optional. Body of the HTTP request. The body can take any generic value. The value is written to the HttpRequest of the [Task].
      */
     body?: Schema$HttpBody;
   }
@@ -317,7 +317,13 @@ export namespace cloudtasks_v2beta2 {
    * Defines a header message. A header can have a key and a value.
    */
   export interface Schema$Header {
+    /**
+     * The key of the header.
+     */
     key?: string | null;
+    /**
+     * The value of the header.
+     */
     value?: string | null;
   }
   /**
@@ -3024,7 +3030,7 @@ export namespace cloudtasks_v2beta2 {
     }
 
     /**
-     * Creates and buffers a new task without the need to explicitly define a Task message. The queue must have HTTP target. Note: This feature is in its experimental stage. You must request access to the API through the [Cloud Tasks BufferTasks Experiment Signup form](https://forms.gle/X8Zr5hiXH5tTGFqh8).
+     * Creates and buffers a new task without the need to explicitly define a Task message. The queue must have HTTP target. To create the task with a custom ID, use the following format and set TASK_ID to your desired ID: projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID:buffer To create the task with an automatically generated ID, use the following format: projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks:buffer. Note: This feature is in its experimental stage. You must request access to the API through the [Cloud Tasks BufferTask Experiment Signup form](https://forms.gle/X8Zr5hiXH5tTGFqh8).
      * @example
      * ```js
      * // Before running the sample:
@@ -3051,7 +3057,9 @@ export namespace cloudtasks_v2beta2 {
      *   // Do the magic
      *   const res = await cloudtasks.projects.locations.queues.tasks.buffer({
      *     // Required. The parent queue name. For example: projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID` The queue must already exist.
-     *     parent: 'projects/my-project/locations/my-location/queues/my-queue',
+     *     queue: 'projects/my-project/locations/my-location/queues/my-queue',
+     *     // Optional. Task ID for the task being created. If not provided, a random task ID is assigned to the task.
+     *     taskId: 'placeholder-value',
      *
      *     // Request body metadata
      *     requestBody: {
@@ -3140,7 +3148,7 @@ export namespace cloudtasks_v2beta2 {
       const parameters = {
         options: Object.assign(
           {
-            url: (rootUrl + '/v2beta2/{+parent}/tasks:buffer').replace(
+            url: (rootUrl + '/v2beta2/{+queue}/tasks/{taskId}:buffer').replace(
               /([^:]\/)\/+/g,
               '$1'
             ),
@@ -3149,8 +3157,8 @@ export namespace cloudtasks_v2beta2 {
           options
         ),
         params,
-        requiredParams: ['parent'],
-        pathParams: ['parent'],
+        requiredParams: ['queue', 'taskId'],
+        pathParams: ['queue', 'taskId'],
         context: this.context,
       };
       if (callback) {
@@ -4304,7 +4312,11 @@ export namespace cloudtasks_v2beta2 {
     /**
      * Required. The parent queue name. For example: projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID` The queue must already exist.
      */
-    parent?: string;
+    queue?: string;
+    /**
+     * Optional. Task ID for the task being created. If not provided, a random task ID is assigned to the task.
+     */
+    taskId?: string;
 
     /**
      * Request body metadata
